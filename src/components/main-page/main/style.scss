@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans&display=swap');
+
+
+.main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+
+    min-height: 100vh;
+    width: 100%;
+
+
+    @keyframes enter-text-cursor {
+        0% { opacity: 0; }
+        50% { opacity: 1; }
+        100% { opacity: 0; }
+    }
+
+
+    .main-elem {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        max-width: 800px;
+
+        @media screen and (max-width: 768px) {
+            margin: 0px 15px;
+        }
+
+        .main-title {
+            font: 400 3em "IBM Plex Mono";
+            min-height: 1em;
+            color: rgb(30, 212, 6);
+            display: inline;
+
+            @media screen and (max-width: 350px) {
+                font-size: 2em;
+            }
+        }
+
+
+        .main-text {
+            font: 400 15px "IBM Plex Mono";
+            color: gray;
+        }
+
+
+        .main-go {
+            width: 70%;
+            height: 50px;
+
+            margin-top: 40px;
+
+            cursor: pointer;
+            background-color: rgb(30, 212, 6);
+            color: white;
+            font-size: 1.2em;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0 0 15px rgb(30, 212, 6);
+        }
+
+        .enter {
+            width: 1px;
+            height: 1em;
+            margin: auto 0px;
+            margin-left: 10px;
+            margin-top: 5px;
+            position: absolute;
+            display: inline;
+
+            background-color: white;
+            animation: enter-text-cursor 1s infinite ease-in-out;
+        }
+    }
+
+
+    .main-photo {
+        width: 15%;
+        aspect-ratio: 1 / 1;
+        border: 5px solid green;
+        border-radius: 50%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
+
+        img {
+            width: 90%;
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+        }
+    }
+}

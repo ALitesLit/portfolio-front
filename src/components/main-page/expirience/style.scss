@@ -1,0 +1,58 @@
+.skills {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+
+    min-height: 100vh;
+    width: 100%;
+
+    .skills-header {
+        display: flex;
+        gap: 5px;
+        text-align: left;
+        margin-left: 20px;
+        font: 200 2em "IBM Plex Mono";
+    }
+
+    .skills-header::before {
+        content: "#";
+        color: rgb(30, 212, 6);
+    }
+
+    .skills-left {
+        img {
+            @media screen and (max-width: 750px) {
+                width: 40vw;
+            }
+        }
+    }
+
+    .skills-content {
+        display: flex;
+        justify-content: space-around;
+        width: 95%;
+        max-width: 980px;
+        margin: 0px auto;
+
+        @media screen and (max-width: 625px) {
+            display: block;
+        }
+    }
+
+    .skills-cards {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 35px;
+        margin-top: 5em;
+
+        @media screen and (max-width: 750px) {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+    }
+}
