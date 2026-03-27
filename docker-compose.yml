@@ -1,0 +1,10 @@
+services:
+  front-end:
+    build: ./build
+
+    image: portfolio-client
+    restart: always
+    container_name: portfolio-client
+    
+    ports:
+      - "3000:3000"
