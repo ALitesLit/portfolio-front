@@ -5,7 +5,7 @@ import photo from "../../../assets/my-photo.jpg";
 import "./style.scss";
 
 
-const MainSection = () => {
+const MainSection = ({ abouteRef }) => {
     const [title, setTitle] = useState("");
 
 
@@ -24,7 +24,7 @@ const MainSection = () => {
 
             return () => clearInterval(interval);
         }, [title]
-    )
+    );
 
 
     return (
@@ -33,7 +33,7 @@ const MainSection = () => {
                 <h1 className="main-title">{title} <span className="enter"></span></h1>
                 <p className="main-text">Доброго времени суток! Добро пожаловать на мой сайт, где вы сможете ознакомится с моими навыками и проектами</p>
             
-                <a href="#aboute"><button className="main-go">Давайте начнём?</button></a>
+                <button className="main-go" onClick={() => abouteRef.current.scrollIntoView({ behavior: "smooth" })}>Давайте начнём?</button>
             </div>
 
             <div className="main-photo">

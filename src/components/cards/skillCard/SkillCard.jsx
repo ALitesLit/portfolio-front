@@ -9,8 +9,8 @@ const SkillCard = ({ name, list }) => {
             <ul>
                 {
                     list.map(
-                        i => (
-                            <li key={i.id}>{i.name}</li>
+                        (i, index) => (
+                            <li key={index}>{i.name}</li>
                         )
                     )
                 }

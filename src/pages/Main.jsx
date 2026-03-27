@@ -14,15 +14,7 @@ import "./style.scss";
 
 
 const Main = () => {
-    const mainRef = useRef(null);
     const abouteRef = useRef(null);
-    const experienceRef = useRef(null);
-    const projectsRef = useRef(null);
-    const sertefiesRef = useRef(null);
-
-    const [refs, setRefs] = useState({
-
-    });
 
     const matches = useMediaQuery("(max-width: 760px)");
 
@@ -43,11 +35,11 @@ const Main = () => {
             
             <main>
                 <Fade>
-                    <MainSection />
+                    <MainSection abouteRef={abouteRef} />
                 </Fade>
 
                 <Fade>
-                    <Aboute />
+                    <Aboute abouteRef={abouteRef} />
                 </Fade>
 
                 <Fade>
