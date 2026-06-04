@@ -5,9 +5,11 @@ import social from "@/mock/social_network.json";
 import projects from "@/mock/projects.json";
 import category from "@/mock/get_category.json";
 import sertefies from "@/mock/sertefies.json";
+import { fetchPyrusProject } from "./pyrus_api/pyrusService";
+import { BackendMode } from "@/interfaces/Enums";
 
 
-const mock = process.env.NEXT_PUBLIC_REACT_APP_MOCK_ENV;
+const backendMode: BackendMode = process.env.NEXT_PUBLIC_BACKEND_MODE;
 
 
 const getProjects = ( selectCategory ) => {
@@ -27,7 +29,7 @@ const getProjects = ( selectCategory ) => {
 
 
 export const fetchSocialService = async () => {
-    if (mock) {
+    if (backendMode == "mock") {
         return social;
     } else {
         const { data } = await $api.get("social_network");
@@ -38,7 +40,7 @@ export const fetchSocialService = async () => {
 
 
 export const fetchSkillsService = async () => {
-    if (mock) {
+    if (backendMode == "mock") {
         return skills;
     } else {
         const { data } = await $api.get("skills");
@@ -49,7 +51,7 @@ export const fetchSkillsService = async () => {
 
 
 export const fetchСategoryService = async () => {
-    if (mock) {
+    if (backendMode == "mock") {
         return category;
     } else {
         const { data } = await $api.get("get_category");
@@ -59,9 +61,13 @@ export const fetchСategoryService = async () => {
 }
 
 
-export const fetchProjectsService = async ( loadMore, selectCategory ) => {
-    if (mock) {
+export const fetchProjectsService = async ( loadMore: boolean, selectCategory ) => {
+    if ( backendMode == "mock" ) {
         const projects_list = getProjects(selectCategory);
+
+        return loadMore ? projects_list : projects_list.slice(0, 3);
+    } else if ( backendMode == "pyrus" ) {
+        const projects_list = await fetchPyrusProject();
 
         return loadMore ? projects_list : projects_list.slice(0, 3);
     } else {
@@ -75,7 +81,7 @@ export const fetchProjectsService = async ( loadMore, selectCategory ) => {
 
 
 export const fetchCertefiesService = async () => {
-    if (mock) {
+    if (backendMode == "mock") {
         return sertefies;
     } else {
         const { data } = await $api.get("sertefies");

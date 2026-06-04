@@ -12,7 +12,7 @@
       "deskription": "Проект, в создании которого я принимал участие во время работы в Нейрориэлторе",
       "short_deskription": null,
       "site": "https://neurorealtor.pro/home",
-      "experience": ["Next.js", "React", "Redux", "Sass"],
+      "experience": ["Next.js", "React", "Redux", "TypeScript", "Sass"],
       "importance": 2
     },
     {
@@ -28,7 +28,7 @@
       "deskription": "Сайт, при разработке которого я принимал участие во время работы во vseTUT",
       "short_deskription": null,
       "site": "https://vsetutshop.ru/",
-      "experience": ["Next.js", "React", "Redux", "Sass"],
+      "experience": ["React", "Redux", "Sass"],
       "importance": 1
     },
     {

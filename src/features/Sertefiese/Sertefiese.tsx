@@ -6,6 +6,7 @@ import Image from "next/image";
 
 import { BaseUrl, fetchCertefiesService } from "@/service";
 import { ISertefiesResponse } from "@/interfaces/Enitys";
+import { BackendMode } from "@/interfaces/Enums";
 
 import "./style.scss";
 import "swiper/css";
@@ -13,7 +14,7 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 
 
-const mock = process.env.NEXT_PUBLIC_REACT_APP_MOCK_ENV;
+const backendMode: BackendMode = process.env.NEXT_PUBLIC_BACKEND_MODE;
 
 const Sertefies = () => {
     const [sertefies, setSertefies] = useState([]);
@@ -64,10 +65,10 @@ const Sertefies = () => {
                                 sertefies.map(
                                     ( i: ISertefiesResponse, index: number ) => (
                                         <SwiperSlide key={index} className="swiper-slide">
-                                            <a href={i.site ? i.site : (mock ? i.site : `${BaseUrl}/${i.photo}`)}>
+                                            <a href={i.site ? i.site : (backendMode !== "backend" ? i.site : `${BaseUrl}/${i.photo}`)}>
                                                 <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9' }}>
                                                     <Image
-                                                        src={mock ? i.photo : `${BaseUrl}/${i.photo}`} 
+                                                        src={backendMode !== "backend" ? i.photo : `${BaseUrl}/${i.photo}`} 
                                                         alt={`Сертификат ${index + 1}`}
                                                         fill
                                                         sizes="(max-width: 768px) 100vw, 50vw"

@@ -4,11 +4,12 @@ import { useEffect, useState, useCallback } from "react";
 import { fetchSocialService } from "../../../../service/service";
 import BaseUrl from "../../../../service/url";
 import { ISocailResponse } from "@/interfaces/Enitys";
+import { BackendMode } from "@/interfaces/Enums";
 
 import styles from "./style.module.scss";
 
 
-const mock = process.env.NEXT_PUBLIC_REACT_APP_MOCK_ENV;
+const backendMode: BackendMode = process.env.NEXT_PUBLIC_BACKEND_MODE;
 
 const SocialHeader = () => {
     const [social, setSocial] = useState<ISocailResponse[]>([]);
@@ -39,7 +40,7 @@ const SocialHeader = () => {
                         social.map(
                             (i: ISocailResponse) => (
                                 <a key={i.id} className={ styles.social_header_elem } href={i.site} style={{
-                                    backgroundImage: `url(${ mock ? `${i.photo}` : BaseUrl + i.photo })`
+                                    backgroundImage: `url(${ backendMode !== "backend" ? `${i.photo}` : BaseUrl + i.photo })`
                                 }}>
                                 </a>
                             )
