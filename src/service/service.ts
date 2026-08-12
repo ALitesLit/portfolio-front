@@ -40,14 +40,18 @@ export const fetchSocialService = async () => {
 
 
 export const fetchSkillsService = async () => {
-    if (backendMode == "mock") {
-        return skills;
+    if (backendMode === "mock") {
+        return skills.map((item) => ({
+            ...item,
+            experienceList: [...item.experienceList].sort(
+                (a, b) => a.importance - b.importance
+            ),
+        }));
     } else {
         const { data } = await $api.get("skills");
-
         return data;
     }
-}
+};
 
 
 export const fetchСategoryService = async () => {
@@ -63,7 +67,7 @@ export const fetchСategoryService = async () => {
 
 export const fetchProjectsService = async ( loadMore: boolean, selectCategory ) => {
     if ( backendMode == "mock" ) {
-        const projects_list = getProjects(selectCategory);
+        const projects_list = getProjects(selectCategory).sort((a, b) => a.importance - b.importance);
 
         return loadMore ? projects_list : projects_list.slice(0, 3);
     } else if ( backendMode == "pyrus" ) {
@@ -82,7 +86,7 @@ export const fetchProjectsService = async ( loadMore: boolean, selectCategory ) 
 
 export const fetchCertefiesService = async () => {
     if (backendMode == "mock") {
-        return sertefies;
+        return sertefies.sort((a, b) => b.id - a.id);
     } else {
         const { data } = await $api.get("sertefies");
 

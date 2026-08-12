@@ -2,9 +2,16 @@
   "name": "next-portfolio",
   "version": "3.3.0",
   "private": true,
+  "homepage": "https://aliteslit.github.io/portfolio-front",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ALitesLit/portfolio-front.git"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build -r https://github.com/ALitesLit/portfolio-front.git",
     "start": "next start",
     "lint": "eslint",
     "test": "TS_NODE_PROJECT=tsconfig.jest.json jest",
