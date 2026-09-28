@@ -68,7 +68,7 @@ const Sertefies = () => {
                                             <a href={i.site ? i.site : (backendMode !== "backend" ? i.site : `${BaseUrl}/${i.photo}`)}>
                                                 <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9' }}>
                                                     <Image
-                                                        src={backendMode !== "backend" ? i.photo : `${BaseUrl}/${i.photo}`} 
+                                                        src={backendMode !== "backend" ? i.photo : `${BaseUrl}${i.photo}`} 
                                                         alt={`Сертификат ${index + 1}`}
                                                         fill
                                                         sizes="(max-width: 768px) 100vw, 50vw"

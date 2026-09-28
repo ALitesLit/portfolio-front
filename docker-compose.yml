@@ -11,7 +11,7 @@ services:
     container_name: next-portfolio-client
 
     env_file:
-      - .env.local
+      - .env
     
     ports:
       - "3000:3000"
