@@ -1,0 +1,26 @@
+.skill-card {
+    padding-bottom: 20px;
+    border: 3px solid gray;
+    color: gray;
+    width: 280px;
+    
+    @media screen and (max-width: 850px) {
+        max-width: 350px;
+    }
+
+    h1 {
+        width: 100%;
+        text-align: center;
+        margin: 20px auto;
+    }
+
+    ul li {
+        list-style: decimal;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
